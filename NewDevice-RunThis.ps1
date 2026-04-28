@@ -1,3 +1,5 @@
+# Sets timezone to Eastern Standard and configures power options to disable Sleep while plugged in.
+
 Set-TimeZone -id "Eastern Standard Time"
 
 # Lid close action:
