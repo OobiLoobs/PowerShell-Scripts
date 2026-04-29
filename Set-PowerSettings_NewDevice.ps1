@@ -2,8 +2,7 @@
 # On battery & Plugged in = Do Nothing
 
 # Sleep timeout:
-# On battery  = Never
-# Plugged in  = Never
+# On battery & Plugged in = Never
 
 # Display timeout:
 # On battery  = 3 minutes
