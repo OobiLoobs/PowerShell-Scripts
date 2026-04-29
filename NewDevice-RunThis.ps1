@@ -3,12 +3,10 @@
 Set-TimeZone -id "Eastern Standard Time"
 
 # Lid close action:
-# On battery  = Sleep
-# Plugged in  = Do Nothing
+# On battery & Plugged in = Do Nothing
 
 # Sleep timeout:
-# On battery  = 60 minutes
-# Plugged in  = Never
+# On battery & Plugged in = Never
 
 # Display timeout:
 # On battery  = 3 minutes
@@ -21,7 +19,7 @@ $lidAction  = "5ca83367-6e45-459f-a27b-476b1d01c936"
 $sleepButton = "96996bc0-ad50-47ec-923b-6f41874dd9eb"
 
 # Lid close:
-powercfg /SETDCVALUEINDEX SCHEME_CURRENT $subButtons $lidAction 1   # Battery = Sleep
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT $subButtons $lidAction 0   # Battery = Do Nothing
 powercfg /SETACVALUEINDEX SCHEME_CURRENT $subButtons $lidAction 0   # Plugged in = Do Nothing
 
 # Sleep button:
@@ -29,7 +27,7 @@ powercfg /SETDCVALUEINDEX SCHEME_CURRENT $subButtons $sleepButton 0
 powercfg /SETACVALUEINDEX SCHEME_CURRENT $subButtons $sleepButton 0
 
 # Sleep timeout:
-powercfg /CHANGE standby-timeout-dc 60
+powercfg /CHANGE standby-timeout-dc 0
 powercfg /CHANGE standby-timeout-ac 0
 
 # Display timeout:
