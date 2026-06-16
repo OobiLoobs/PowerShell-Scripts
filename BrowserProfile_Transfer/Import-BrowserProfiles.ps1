@@ -29,7 +29,7 @@
 # ============================================================
 
 # ── USERNAME RESOLUTION ───────────────────────────────────────────────────────
-$Username = $env:Username
+$Username = "Username"
 
 if (-not $Username) {
     $Username = (Get-WmiObject -Class Win32_ComputerSystem).UserName

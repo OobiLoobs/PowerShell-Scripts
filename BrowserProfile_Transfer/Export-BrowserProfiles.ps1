@@ -36,7 +36,7 @@
 # active interactive user session on the machine (the logged-in user).
 # ─────────────────────────────────────────────────────────────────────────────
 
-$Username = $env:Username  # Set via NinjaOne Script Variable — see instructions above
+$Username = "Username"  # Set via NinjaOne Script Variable — see instructions above
 
 if (-not $Username) {
     # Fallback: find the user currently (or most recently) logged into the console session
