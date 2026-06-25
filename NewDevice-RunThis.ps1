@@ -39,3 +39,63 @@ powercfg /SETACTIVE SCHEME_CURRENT
 
 Write-Host "Power settings updated."
 Write-Host "Timezone set to Eastern Standard."
+
+# Uninstall Jenzabar 2023
+
+# Define the program name to uninstall
+$programName1 = "Jenzabar One Desktop 2023.3.0"
+
+Write-Host "Searching for $programName1..."
+
+# Find the package using the PackageManagement provider (faster and safer than WMI)
+$package = Get-Package -Name $programName1 -ErrorAction SilentlyContinue
+
+if ($package) {
+    Write-Host "Found $($package.Name). Uninstalling..."
+    
+    try {
+        # Uninstall the package silently
+        $package | Uninstall-Package -Force -ErrorAction Stop
+        Write-Host "$($package.Name) uninstalled successfully."
+    }
+    catch {
+        Write-Host "Failed to uninstall $($package.Name). Error: $($_.Exception.Message)"
+    }
+} else {
+    Write-Host "Program '$programName1' not found on this system."
+}
+
+# Install Jenzabar 2024
+
+# $installerPath = "\\ucjenzabar\J1_Shared\J1_2024.3.0.147_AllFiles\J1_Desktop_2024.3.0.147_Setup.exe"
+# $setupFile     = "\\ucjenzabar\J1_Shared\Script_Files\Parameters24.dat"
+
+# Write-Host "Installing Jenzabar One Desktop 2024..."
+
+# Start-Process -FilePath $installerPath `
+#     -ArgumentList "/s /v`"/qn SETUPFILE=\`"$setupFile\`"`"" `
+#     -Wait `
+#     -NoNewWindow
+
+# Write-Host "Jenzabar install command completed."
+
+# # Create public desktop shortcut
+
+# $programPath  = "C:\Program Files (x86)\Jenzabar\J1 2024\Desktop\Programs\J12024.exe"
+# $programName2  = "Jenzabar One Desktop 2024"
+# $desktopPath  = "$env:Public\Desktop"
+# $shortcutPath = Join-Path $desktopPath "$programName2.lnk"
+
+# Write-Host "Creating desktop shortcut for all users..."
+
+# if (Test-Path $programPath) {
+#     $ws = New-Object -ComObject WScript.Shell
+#     $shortcut = $ws.CreateShortcut($shortcutPath)
+#     $shortcut.TargetPath = $programPath
+#     $shortcut.Save()
+
+#     Write-Host "Shortcut created: $shortcutPath"
+# }
+# else {
+#     Write-Host "Jenzabar executable not found: $programPath"
+# }
