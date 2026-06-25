@@ -43,12 +43,12 @@ Write-Host "Timezone set to Eastern Standard."
 # Uninstall Jenzabar 2023
 
 # Define the program name to uninstall
-$programName = "Jenzabar One Desktop 2023.3.0"
+$programName1 = "Jenzabar One Desktop 2023.3.0"
 
-Write-Host "Searching for $programName..."
+Write-Host "Searching for $programName1..."
 
 # Find the package using the PackageManagement provider (faster and safer than WMI)
-$package = Get-Package -Name $programName -ErrorAction SilentlyContinue
+$package = Get-Package -Name $programName1 -ErrorAction SilentlyContinue
 
 if ($package) {
     Write-Host "Found $($package.Name). Uninstalling..."
@@ -62,7 +62,7 @@ if ($package) {
         Write-Host "Failed to uninstall $($package.Name). Error: $($_.Exception.Message)"
     }
 } else {
-    Write-Host "Program '$programName' not found on this system."
+    Write-Host "Program '$programName1' not found on this system."
 }
 
 # Install Jenzabar 2024
@@ -82,9 +82,9 @@ Write-Host "Jenzabar install command completed."
 # Create public desktop shortcut
 
 $programPath  = "C:\Program Files (x86)\Jenzabar\J1 2024\Desktop\Programs\J12024.exe"
-$programName  = "Jenzabar One Desktop 2024"
+$programName2  = "Jenzabar One Desktop 2024"
 $desktopPath  = "$env:Public\Desktop"
-$shortcutPath = Join-Path $desktopPath "$programName.lnk"
+$shortcutPath = Join-Path $desktopPath "$programName2.lnk"
 
 Write-Host "Creating desktop shortcut for all users..."
 
