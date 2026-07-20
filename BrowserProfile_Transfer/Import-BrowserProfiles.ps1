@@ -29,7 +29,7 @@
 # ============================================================
 
 # ── USERNAME RESOLUTION ───────────────────────────────────────────────────────
-$Username = "Username"
+& { $Username = "Username"
 
 if (-not $Username) {
     $Username = (Get-WmiObject -Class Win32_ComputerSystem).UserName
@@ -291,4 +291,5 @@ if ($importCount -eq 0) {
 } else {
     Write-Host "Browsers can now be reopened. All imported profiles should be active."
     Write-Host "If anything looks wrong, pre-import backups are saved at: $BackupRoot"
+}
 }
