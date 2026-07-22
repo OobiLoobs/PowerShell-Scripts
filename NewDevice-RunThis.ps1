@@ -1,8 +1,14 @@
-# Sets timezone to Eastern Standard and configures power options to disable Sleep while plugged in.
+& { # Sets timezone to Eastern Standard and configures power options to disable Sleep while plugged in.
 Set-TimeZone -id "Eastern Standard Time"
 
 # Disables default Administrator account
 Disable-LocalUser -Name "Administrator"
+if ((Get-LocalUser -Name "Administrator").Enabled) {
+    Write-Host "Administrator account couldn't be disabled."
+}
+else {
+    Write-Host "Administrator account disabled."
+}
 
 # Lid close action:
 # On battery & Plugged in = Do Nothing
@@ -101,3 +107,4 @@ if ($package) {
 # else {
 #     Write-Host "Jenzabar executable not found: $programPath"
 # }
+}
