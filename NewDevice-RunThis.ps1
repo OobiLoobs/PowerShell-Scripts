@@ -1,6 +1,8 @@
 # Sets timezone to Eastern Standard and configures power options to disable Sleep while plugged in.
-
 Set-TimeZone -id "Eastern Standard Time"
+
+# Disables default Administrator account
+Disable-LocalUser -Name "Administrator"
 
 # Lid close action:
 # On battery & Plugged in = Do Nothing
